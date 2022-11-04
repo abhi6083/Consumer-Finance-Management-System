@@ -39,9 +39,11 @@ const FooterStyle = {
     fontSize: ".8rem",
     color: "#fff",
     position: "absolute",
-    bottom: -160,
+    bottom: -250,
     padding: "1rem",
     margin: 0,
     width: "100%",
-    opacity: ".5"
+    opacity: ".5",
+
+    
 }
