@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom'
 import '../../App.css'
 // import BackgroundImage from '../../assets/images/bg.png'
 
-var __html = require('/index.html');
-var template = { __html: __html };
+
 
 import {
     Nav,
@@ -19,7 +18,7 @@ import {
 export default function LandingPage() {
     return (
 
-        <div dangerouslySetInnerHTML={template} />
+    
         <header style={HeaderStyle}>
 
             <>
