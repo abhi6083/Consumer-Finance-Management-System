@@ -3,9 +3,38 @@ import { Link } from 'react-router-dom'
 
 
 import styles from "./Dashboard.module.css";
+import {
+    Nav,
+    NavLink,
+    Bars,
+    NavMenu,
+    NavBtn,
+    NavBtnLink,
+} from './NavbarElements';
 
 export default function Dashboard() {
     return (
+<div>
+        <header style={HeaderStyle}>
+
+                <Nav>
+                    <Bars />
+
+                    <NavMenu>
+
+                        <NavBtn>
+                            <NavBtnLink to='/productlist'>All Products</NavBtnLink>
+                        </NavBtn>
+
+            
+
+                    </NavMenu>
+
+                </Nav>
+
+
+
+            </header >
         <div className={styles.container}>
             <div className={styles.heading}>
                 <h2>DASHBOARD</h2>
@@ -61,5 +90,14 @@ export default function Dashboard() {
     </div>
     </div>
         </div>
+        </div>
     )
+}
+const HeaderStyle = {
+    width: "100%",
+    height: "15vh",
+    // background: `url(${BackgroundImage})`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover"
 }
