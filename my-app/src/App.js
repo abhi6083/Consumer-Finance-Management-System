@@ -9,6 +9,7 @@ import HomePage from './components/pages/HomePage'
 import Dashboard from './components/pages/Dashboard'
 import Productlist from './components/pages/Productlist'
 import Adminpage from './components/pages/Adminpage'
+import ProductDetails from './components/pages/ProductDetails'
 
 import './App.css'
 
@@ -25,6 +26,7 @@ export default function App() {
                     <Route path='/dashboard' element={ <Dashboard/> } />
                     <Route path='/productlist' element={ <Productlist/> } />
                     <Route path='/adminpage' element={ <Adminpage/> } />
+                    <Route path='/productdetails' element={ <ProductDetails/> } />
                 </Routes>
                 <Footer />
             </div>
