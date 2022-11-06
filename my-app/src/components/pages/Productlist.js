@@ -44,7 +44,7 @@ export default function Productlist() {
       <section id={styles.body}>
         <div>
           <h1 className={styles.pl}>Product List</h1>
-          <label for="cardno">Search Product: </label>
+          <label forName="cardno">Search Product: </label>
           <input style={{backgroundColor: "whitesmoke"}} type="text" id="cardno" name="cardno"/>
           <button className={styles.button} style={{fontSize: "10px"}}>Search</button><br /><br /><br />
 

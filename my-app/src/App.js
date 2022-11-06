@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import LandingPage from './components/pages/LandingPage'
@@ -10,10 +10,12 @@ import Dashboard from './components/pages/Dashboard'
 import Productlist from './components/pages/Productlist'
 import Adminpage from './components/pages/Adminpage'
 import ProductDetails from './components/pages/ProductDetails'
+import Changepassword from './components/pages/Changepassword'
 
 import './App.css'
 
 export default function App() {
+    const [otp,setotp]=useState()
     return (
         <Router>
             <div>
@@ -21,12 +23,13 @@ export default function App() {
                     <Route exact path='/' element={ <LandingPage/> } />
                     <Route path='/login' element={ <LoginPage/> } />
                     <Route path='/register' element={ <RegisterPage/> } />
-                    <Route path='/forget-password' element={ <ForgetPasswordPage/> } />
+                    <Route path='/forget-password' element={ <ForgetPasswordPage setotp={setotp} otp={otp}/> } />
                     <Route path='/home' element={ <HomePage/> } />
                     <Route path='/dashboard' element={ <Dashboard/> } />
                     <Route path='/productlist' element={ <Productlist/> } />
                     <Route path='/adminpage' element={ <Adminpage/> } />
                     <Route path='/productdetails' element={ <ProductDetails/> } />
+                    <Route path='/changepassword' element={ <Changepassword otp={otp}/> } />
                 </Routes>
                 <Footer />
             </div>
