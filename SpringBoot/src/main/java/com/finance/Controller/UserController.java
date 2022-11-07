@@ -25,7 +25,14 @@ public class UserController {
 	
 	@GetMapping("/userfind/{uname}")
 	public User finUserByUname(@PathVariable(value="uname") String uname) {
+		System.out.println("Nanda");
 		return userService.findUserByUname(uname);
+	}
+
+	@GetMapping("/userfindEmail/{Email}")
+	public User finUserByEmail(@PathVariable(value="Email") String Email) {
+		System.out.println("Nanda");
+		return userService.findUserByEmail(Email);
 	}
 	
 	@GetMapping("/user")
@@ -39,13 +46,14 @@ public class UserController {
 		return userService.addUser(user);
 	}
 	@GetMapping("/userexists/{uname}")
-	public boolean findUserExists(@PathVariable(value="uname") String uname) {
+	public String
+	findUserExists(@PathVariable(value="uname") String uname) {
 		User u=null;
 		u=userService.findUserByUname(uname);
 		if(u!=null) {
-			return true;
+			return "true";
 		}
-		return false;
+		return "false";
 	}
 	@GetMapping("/uservalidate/{uname}/{upass}")
 	public int validateUser(@PathVariable(value="uname") String uname,@PathVariable(value="upass") String upass) {

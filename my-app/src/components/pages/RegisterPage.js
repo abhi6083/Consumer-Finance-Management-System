@@ -23,7 +23,7 @@ export default function SignUpPage() {
 
 
 const submit=()=>{
-    
+    var flag=1
     const obj={
         uname : uname,
         phone : pno,
@@ -34,21 +34,50 @@ const submit=()=>{
         bankname : bank,
         acc_no : acc
     }
-    fetch('http://localhost:9797/userRest/api/user', {
-    method: 'POST',
+
+
+    fetch('http://localhost:9797/userRest/api/userexists/'+uname, {
+    method: 'GET',
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
-    },
-    body: JSON.stringify( obj )
+    }
     })
     .then(response => response.json())
     .then(response =>{
         if( JSON.stringify(response)==="true"){
-            navigate("/login")
+            alert("User Already Exist")
+            navigate('/login')   
+        }
+        else{
+            fetch('http://localhost:9797/userRest/api/user', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify( obj )
+            })
+            .then(response => response.json())
+            .then(response =>{
+                if( JSON.stringify(response)==="true"){
+                    navigate("/login")
+                }
+            }
+            )
+            
         }
     }
     )
+
+
+
+
+
+
+
+
+    
     
     
 

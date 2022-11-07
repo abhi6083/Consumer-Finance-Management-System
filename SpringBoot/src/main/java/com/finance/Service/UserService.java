@@ -6,7 +6,10 @@ import com.finance.Model.User;
 
 public interface UserService {
 	public boolean addUser(User user);
-	public User findUserByUname(String uname);
+
+    User findUserByEmail(String Email);
+
+    public User findUserByUname(String uname);
 	public List<User> getAllUsers();
 
 }

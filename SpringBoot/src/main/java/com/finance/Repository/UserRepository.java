@@ -10,6 +10,7 @@ import com.finance.Model.User;
 public interface UserRepository extends JpaRepository<User, Long>{
 
 	public User findUserByUname(String uname);
+	public User findUserByEmail(String Email);
 
 	
 }
