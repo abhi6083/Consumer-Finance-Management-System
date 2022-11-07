@@ -17,7 +17,7 @@ import com.finance.Model.User;
 import com.finance.Service.UserService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/userRest/api")
 public class UserController {
 	@Autowired

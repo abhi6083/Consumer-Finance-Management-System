@@ -23,7 +23,7 @@ export default function App() {
                     <Route exact path='/' element={ <LandingPage/> } />
                     <Route path='/login' element={ <LoginPage/> } />
                     <Route path='/register' element={ <RegisterPage/> } />
-                    <Route path='/forget-password' element={ <ForgetPasswordPage setotp={setotp} otp={otp}/> } />
+                    <Route path='/forget-password' element={ <ForgetPasswordPage setotp={setotp} /> } />
                     <Route path='/home' element={ <HomePage/> } />
                     <Route path='/dashboard' element={ <Dashboard/> } />
                     <Route path='/productlist' element={ <Productlist/> } />
@@ -31,7 +31,7 @@ export default function App() {
                     <Route path='/productdetails' element={ <ProductDetails/> } />
                     <Route path='/changepassword' element={ <Changepassword otp={otp}/> } />
                 </Routes>
-                <Footer />
+                
             </div>
         </Router>
     )

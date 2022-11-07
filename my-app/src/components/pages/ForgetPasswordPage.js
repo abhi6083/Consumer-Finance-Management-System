@@ -4,11 +4,11 @@ import { Link,useNavigate } from 'react-router-dom'
 import '../../App.css'
 import styles from "./Productlist.module.css";
 
-export default function ForgetPasswordPage({setotp,otp}) {
+export default function ForgetPasswordPage({setotp}) {
 
     const navigate = useNavigate();
     const submit=()=>{
-            console.log(otp)
+            
             navigate(`/changepassword`)
     }
 
