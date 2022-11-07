@@ -36,7 +36,7 @@ export default function LandingPage() {
                         </NavBtn>
 
                         <NavBtn>
-                            <NavBtnLink to='/login'>Login Admin</NavBtnLink>
+                            <NavBtnLink to='/adminlogin'>Login Admin</NavBtnLink>
                         </NavBtn>
 
                         <NavBtn>

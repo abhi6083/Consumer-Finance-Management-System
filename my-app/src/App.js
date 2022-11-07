@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import LandingPage from './components/pages/LandingPage'
 import LoginPage from './components/pages/LoginPage'
+import AdminLoginPage from './components/pages/adminlogin'
 import RegisterPage from './components/pages/RegisterPage'
 import ForgetPasswordPage from './components/pages/ForgetPasswordPage'
 import HomePage from './components/pages/HomePage'
@@ -22,6 +23,7 @@ export default function App() {
                 <Routes>
                     <Route exact path='/' element={ <LandingPage/> } />
                     <Route path='/login' element={ <LoginPage/> } />
+                    <Route path='/adminlogin' element={ <AdminLoginPage/> } />
                     <Route path='/register' element={ <RegisterPage/> } />
                     <Route path='/forget-password' element={ <ForgetPasswordPage setotp={setotp} /> } />
                     <Route path='/home' element={ <HomePage/> } />
