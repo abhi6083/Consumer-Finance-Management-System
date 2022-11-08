@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { Link } from 'react-router-dom'
 
 
@@ -15,10 +15,21 @@ import {
 } from './NavbarElements';
 
 export default function Productlist() {
-    return (
-      <>
-<header style={HeaderStyle}>
 
+  const [prod,setprod]=useState([])
+  useEffect(()=>{
+    fetch('http://localhost:9797/api/products', {
+    }).then(response=>response.json())
+    .then(response=>{
+       console.log(response) 
+       setprod(response)  
+    })
+  },[])
+  
+    return (
+  <>
+<header style={HeaderStyle}>
+  {console.log(prod)}
 <Nav>
     <Bars />
     <NavMenu>
@@ -35,72 +46,22 @@ export default function Productlist() {
         <section id={styles.body}>
   <div>
 <h1 className={styles.pl}>Product List</h1>
-
-
 <div className={styles.container}>
-<section className={styles.section}>
+  {prod.map((product)=>{
+    return(
+    <section className={styles.section}>
     <img src="" className={styles.image} />
-    <div className={styles.content}>
-  
-      
-      <label className={styles.lb1}> PRODUCT NAME :</label><br/>
-      <label className={styles.lb1}> PRODUCT DETAILS :</label><br/>
-      <label className={styles.lb1}> COST :</label><br/>
+    <div className={styles.content}> 
+      <label className={styles.lb1}> PRODUCT NAME :{product.prodname}</label><br/>
+      <label className={styles.lb1}> PRODUCT DETAILS : {product.proddesc}</label><br/>
+      <label className={styles.lb1}> COST :{product.price}</label><br/>
       <NavBtn>
-            <NavBtnLink to='/productinfo'>Know More & Buy</NavBtnLink>
+            <NavBtnLink to={'/productinfo/'+product.prodid}>Know More & Buy</NavBtnLink>
       </NavBtn>
-
     </div>
-  </section>
-  <section className={styles.section}>
-    <img src="" className={styles.image} />
-    <div className={styles.content}>
-  
-      
-      <label className={styles.lb1}> PRODUCT NAME :</label><br/>
-      <label className={styles.lb1}> PRODUCT DETAILS :</label><br/>
-      <label className={styles.lb1}> COST :</label><br/>
-      <a href="http://localhost:3000/productinfo"><button className={styles.button}>Buy Now</button></a>
+  </section>)
+  })}
 
-    </div>
-  </section>
-  <section className={styles.section}>
-    <img src="" className={styles.image} />
-    <div className={styles.content}>
-  
-      
-      <label className={styles.lb1}> PRODUCT NAME :</label><br/>
-      <label className={styles.lb1}> PRODUCT DETAILS :</label><br/>
-      <label className={styles.lb1}> COST :</label><br/>
-      <a href="http://localhost:3000/productinfo"><button className={styles.button}>Buy Now</button></a>
-
-    </div>
-  </section>
-  <section className={styles.section}>
-    <img src="" className={styles.image} />
-    <div className={styles.content}>
-  
-      
-      <label className={styles.lb1}> PRODUCT NAME :</label><br/>
-      <label className={styles.lb1}> PRODUCT DETAILS :</label><br/>
-      <label className={styles.lb1}> COST :</label><br/>
-      <a href="http://localhost:3000/productinfo"><button className={styles.button}>Buy Now</button></a>
-
-    </div>
-  </section>
-  <section className={styles.section}>
-    <img src="" className={styles.image} />
-    <div className={styles.content}>
-  
-      
-      <label className={styles.lb1}> PRODUCT NAME :</label><br/>
-      <label className={styles.lb1}> PRODUCT DETAILS :</label><br/>
-      <label className={styles.lb1}> COST :</label><br/>
-      <a href="http://localhost:3000/productinfo"><button className={styles.button}>Buy Now</button></a>
-
-    </div>
-  </section>
-  
 </div>
 </div>
 </section>
