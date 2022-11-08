@@ -2,6 +2,7 @@ package com.finance.Controller;
 
 import java.util.List;
 
+import com.finance.Model.Card;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.finance.Model.CardDetails;
 import com.finance.Model.ProductHistory;
 import com.finance.Model.User;
 import com.finance.Repository.CardDetailsRepository;
@@ -22,7 +22,7 @@ import com.finance.Service.FinanceService;
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("financeRest/api")
 public class FinanceController {
-	@Autowired
+	 @Autowired
 	 FinanceService finSer;
 	 
 	 @Autowired
@@ -55,7 +55,7 @@ public class FinanceController {
    	 return finSer.addDetails(userDet);
      }
      @GetMapping("/carddetails/{regid}")
-     public CardDetails getCardDet(@PathVariable(value="regid")long regid){
+     public Card getCardDet(@PathVariable(value="regid")long regid){
    	  return finSer.getCardDetailsByRegId(regid);
      }
      

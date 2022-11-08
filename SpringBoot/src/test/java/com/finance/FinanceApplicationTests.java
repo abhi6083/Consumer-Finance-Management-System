@@ -6,11 +6,11 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.finance.Model.Card;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.finance.Model.CardDetails;
 import com.finance.Model.Product;
 import com.finance.Model.ProductHistory;
 import com.finance.Model.User;
@@ -100,7 +100,7 @@ void findUserN() {
 }
 @Test
 void testAddCard() {
-	CardDetails card = new CardDetails();
+	Card card = new Card();
 	card.setRegid(27);//from database
 	card.setCardtype("gold");//from database
 	card.setInitialbal(40000);

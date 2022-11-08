@@ -4,11 +4,11 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.finance.Model.Card;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.finance.Model.CardDetails;
 import com.finance.Repository.CardDetailsRepository;
 @Service
 @Transactional
@@ -20,7 +20,7 @@ public class CardDetailsServiceImpl implements CardDetailsService {
 	public boolean updateBalance(long regid,int price) {
 		// TODO Auto-generated method stub
 		
-		CardDetails card=cardRepo.findByRegid(regid);
+		Card card=cardRepo.findByRegid(regid);
 		if(price>card.getAvailbal()) {
 			return false;
 		}else {
@@ -33,7 +33,7 @@ public class CardDetailsServiceImpl implements CardDetailsService {
 	}
 
 	@Override
-	public List<CardDetails> getProducts() {
+	public List<Card> getProducts() {
 		// TODO Auto-generated method stub
 		return cardRepo.findAll();
 	}
@@ -42,14 +42,14 @@ public class CardDetailsServiceImpl implements CardDetailsService {
 	////SNEHAAAA PART
 	
 	@Override
-	public List<CardDetails> getCarddetails() {
+	public List<Card> getCarddetails() {
 		// TODO Auto-generated method stub
 		return cardRepo.findAll();
 	}
 
 	@Override
 	public boolean updateCard(long regid) {
-		CardDetails newcrd=cardRepo.findById(regid).get();
+		Card newcrd=cardRepo.findById(regid).get();
 		cardRepo.save(newcrd);
 		return true;
 		
@@ -57,7 +57,7 @@ public class CardDetailsServiceImpl implements CardDetailsService {
 	}
 
 	@Override
-	public CardDetails findCard(long regid) {
+	public Card findCard(long regid) {
 		// TODO Auto-generated method stub
 		return cardRepo.findById(regid).get();
 	}
@@ -65,13 +65,13 @@ public class CardDetailsServiceImpl implements CardDetailsService {
 	@Override
 	public boolean deleteCard(long regid) {
 		// TODO Auto-generated method stub
-		CardDetails newusr=cardRepo.findById(regid).get();
+		Card newusr=cardRepo.findById(regid).get();
 		cardRepo.delete(newusr);
 		return true;
 	}
 
 	@Override
-	public boolean addCard(CardDetails card) {
+	public boolean addCard(Card card) {
 //		
 		
 		

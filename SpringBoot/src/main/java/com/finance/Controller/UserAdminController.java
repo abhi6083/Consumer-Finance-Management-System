@@ -2,7 +2,7 @@ package com.finance.Controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.finance.Model.Card;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.finance.Model.CardDetails;
 import com.finance.Model.User;
 import com.finance.Service.AuthenticateUserService;
 import com.finance.Service.CardDetailsService;
@@ -23,10 +22,9 @@ import com.finance.Service.CardDetailsService;
 @RequestMapping("/UserDetailsRest/api")
 
 public class UserAdminController {
-	
-	@Autowired
+
 	AuthenticateUserService adService;
-	@Autowired
+
 	CardDetailsService cdService;
 	@GetMapping("/userDetails")
 	public List<User> getAll(){
@@ -56,16 +54,16 @@ public class UserAdminController {
 		return adService.deleteUser(regid);
 	}
 	@GetMapping("/cardDetails")
-	public List<CardDetails> getAllCards(){
+	public List<Card> getAllCards(){
 		return cdService.getCarddetails();
 	}
 	@GetMapping("/cardDetails/{regid}")
-	public CardDetails getCardById(@PathVariable(value = "regid") long regid) {
+	public Card getCardById(@PathVariable(value = "regid") long regid) {
 		return cdService.findCard(regid);
 		
 	}
 	@PostMapping("/cardDetails")
-	public boolean addCard(@RequestBody CardDetails card) {
+	public boolean addCard(@RequestBody Card card) {
 		
 	return cdService.addCard(card);
 	}

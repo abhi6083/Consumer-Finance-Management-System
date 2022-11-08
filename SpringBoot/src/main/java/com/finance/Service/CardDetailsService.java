@@ -1,24 +1,23 @@
 package com.finance.Service;
 
+import com.finance.Model.Card;
+
 import java.util.List;
-
-import com.finance.Model.CardDetails;
-
 
 
 public interface CardDetailsService {
 	public boolean updateBalance(long regid,int price);
-	public List<CardDetails> getProducts();
+	public List<Card> getProducts();
 	
 	
 	//SNEHA PART
-	public List<CardDetails> getCarddetails();
+	public List<Card> getCarddetails();
 	
 	
 	public boolean updateCard(long regid);
 	
-	public CardDetails findCard(long regid);
+	public Card findCard(long regid);
 	public boolean deleteCard(long regid);
 	
-	public boolean addCard(CardDetails card);
+	public boolean addCard(Card card);
 }
