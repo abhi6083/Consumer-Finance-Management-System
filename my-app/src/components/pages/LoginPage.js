@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
-import { Link,useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import '../../App.css'
 
-export default function SignInPage({setregid}) {
+export default function SignInPage() {
     const[uname,setuname]=useState()
     const[pass,setpass]=useState()
-    const navigate = useNavigate();
 
 
     const submit=()=>{
-        fetch('http://localhost:9797/userRest/api/uservalidate/'+uname+'/'+pass, {
+        fetch('http://localhost:9797/userRest/api//uservalidate/'+uname+'/'+pass, {
     method: 'GET',
     headers: {
         'Accept': 'application/json',
@@ -23,14 +22,7 @@ export default function SignInPage({setregid}) {
             alert("User Name Doesn't exist")   
         }
         else if( JSON.stringify(response)==='2'){
-                fetch('http://localhost:9797/userRest/api/userfind/'+uname, {
-                    }).then(response=>response.json())
-                    .then(response=>{
-                             console.log(response.regid)
-                             setregid(response.regid)
-                             navigate("/productlist")
-                    })  
-            
+            alert("Correct Details")   
         }
         else{
             console.log(JSON.stringify(response))

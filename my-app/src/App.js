@@ -12,34 +12,26 @@ import Productlist from './components/pages/Productlist'
 import Adminpage from './components/pages/Adminpage'
 import ProductDetails from './components/pages/ProductDetails'
 import Changepassword from './components/pages/Changepassword'
-import ActivateUser from './components/pages/activateuser'
-import AddProduct from './components/pages/addProduct'
-
-
 
 import './App.css'
 
 export default function App() {
     const [otp,setotp]=useState()
-    const [regid,setregid]=useState()
-    
     return (
         <Router>
             <div>
                 <Routes>
                     <Route exact path='/' element={ <LandingPage/> } />
-                    <Route path='/login' element={ <LoginPage setregid={setregid} /> } />
+                    <Route path='/login' element={ <LoginPage/> } />
                     <Route path='/adminlogin' element={ <AdminLoginPage/> } />
                     <Route path='/register' element={ <RegisterPage/> } />
                     <Route path='/forget-password' element={ <ForgetPasswordPage setotp={setotp} /> } />
                     <Route path='/home' element={ <HomePage/> } />
                     <Route path='/dashboard' element={ <Dashboard/> } />
-                    <Route path='/productlist' element={ <Productlist /> } />
+                    <Route path='/productlist' element={ <Productlist/> } />
                     <Route path='/adminpage' element={ <Adminpage/> } />
-                    <Route path='/productinfo/:prodid' element={ <ProductDetails/> } />
+                    <Route path='/productdetails' element={ <ProductDetails/> } />
                     <Route path='/changepassword' element={ <Changepassword otp={otp}/> } />
-                    <Route path='/activateuser' element={ <ActivateUser/> } />
-                    <Route path='/addproduct' element={ <AddProduct/> } />
                 </Routes>
                 
             </div>
