@@ -1,8 +1,8 @@
 package com.finance.Service;
 
-import com.finance.Model.AdminLogin;
+import com.finance.Model.admin;
 
 public interface AdminLoginService {
-	public AdminLogin findAdmin(String aname);
+	public admin findAdmin(String aname);
 
 }

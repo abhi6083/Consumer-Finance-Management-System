@@ -46,9 +46,8 @@ public class UserController {
 		return userService.addUser(user);
 	}
 	@GetMapping("/userexists/{uname}")
-	public String
-	findUserExists(@PathVariable(value="uname") String uname) {
-		User u=null;
+	public String findUserExists(@PathVariable(value="uname") String uname) {
+		User u;
 		u=userService.findUserByUname(uname);
 		if(u!=null) {
 			return "true";

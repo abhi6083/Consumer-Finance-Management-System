@@ -1,10 +1,10 @@
 package com.finance.Service;
 
+import com.finance.Model.admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.finance.Model.AdminLogin;
 import com.finance.Repository.AdminLoginRepository;
 
 @Service
@@ -15,7 +15,7 @@ public class AdminLoginServiceImpl implements AdminLoginService {
 	AdminLoginRepository adminloginrepo;
      
 	@Override
-	public AdminLogin findAdmin(String aname) {
+	public admin findAdmin(String aname) {
 		
 	return adminloginrepo.findUserByAname(aname);
 	}

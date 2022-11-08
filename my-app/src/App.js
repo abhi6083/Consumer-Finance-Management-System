@@ -12,6 +12,10 @@ import Productlist from './components/pages/Productlist'
 import Adminpage from './components/pages/Adminpage'
 import ProductDetails from './components/pages/ProductDetails'
 import Changepassword from './components/pages/Changepassword'
+import ActivateUser from './components/pages/activateuser'
+import AddProduct from './components/pages/addProduct'
+
+
 
 import './App.css'
 
@@ -34,6 +38,8 @@ export default function App() {
                     <Route path='/adminpage' element={ <Adminpage/> } />
                     <Route path='/productinfo/:prodid' element={ <ProductDetails/> } />
                     <Route path='/changepassword' element={ <Changepassword otp={otp}/> } />
+                    <Route path='/activateuser' element={ <ActivateUser/> } />
+                    <Route path='/addproduct' element={ <AddProduct/> } />
                 </Routes>
                 
             </div>

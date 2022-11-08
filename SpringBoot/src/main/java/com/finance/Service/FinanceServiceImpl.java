@@ -2,11 +2,11 @@ package com.finance.Service;
 
 import java.util.List;
 
+import com.finance.Model.Card;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.finance.Model.CardDetails;
 import com.finance.Model.ProductHistory;
 import com.finance.Model.User;
 import com.finance.Repository.CardDetailsRepository;
@@ -48,7 +48,7 @@ public class FinanceServiceImpl implements FinanceService {
 	}
 
 	@Override
-	public CardDetails getCardDetailsByRegId(long regid) {
+	public Card getCardDetailsByRegId(long regid) {
 		// TODO Auto-generated method stub
 		return cRep.findById(regid).get();
 	}
