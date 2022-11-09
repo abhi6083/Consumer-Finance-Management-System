@@ -26,16 +26,23 @@ export default function ProductDetails() {
                     <img src={P1} className={styles.image}/>
                     <div className="content">
 
-                        
+                        <>
                         <label className={styles.lb1}> PRODUCT NAME : {prod.prodname} </label>
+                        </>
                         <br/>
+                        <>
                         <label className={styles.lb1}> PRODUCT DETAILS : </label>
+                        </>
+                        <>
                         <br/>
                         <label className={styles.description}>{prod.proddesc}</label>
+                        </>
                         <br/>
+                        <>
 
                         <label className={styles.lb1}> COST : {prod.price}</label>
                         <br/>
+                        </>
                         <label className={styles.lb1}> Processing Fees : $20</label>
                         
                         <br />
