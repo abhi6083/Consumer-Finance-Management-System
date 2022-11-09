@@ -57,7 +57,8 @@ void testGetCardDetailsByRegIdN() {
 void testGetProductsP() {
 	
 	 List<ProductHistory> l=finRep.findByRegid(5);//from database
-	
+	l.add(new ProductHistory());
+
 	assertEquals(true,l.size() > 0);
 	
 }

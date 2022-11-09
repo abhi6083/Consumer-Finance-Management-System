@@ -50,7 +50,7 @@ const submit=()=>{
             navigate('/login')   
         }
         else{
-            fetch('http://localhost:9797/userRest/api/user', {
+            fetch('http://localhost:9797/api/products', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
