@@ -54,7 +54,7 @@ export default function ActivateUser() {
                         </NavBtn>
 
                         <NavBtn>
-                            <NavBtnLink to='/adminproducts'>Add Products</NavBtnLink>
+                            <NavBtnLink to='/addproduct'>Add Products</NavBtnLink>
                         </NavBtn>
 
                         <NavBtn>
