@@ -59,8 +59,8 @@ export default function Productlist() {
             <NavBtnLink to={'/productinfo/'+product.prodid}>Know More & Buy</NavBtnLink>
       </NavBtn>
     </div>
-  </section>)
-  })}
+  </section>
+  )})}
 
 </div>
 </div>

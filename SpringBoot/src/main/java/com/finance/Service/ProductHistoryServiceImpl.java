@@ -13,11 +13,13 @@ import com.finance.Repository.ProductHistoryRepository;
 public class ProductHistoryServiceImpl implements ProductHistoryService {
 	@Autowired
 	ProductHistoryRepository prodhistRepo;
+
 	@Override
 	public boolean addProduct(ProductHistory prodhist) {
 		prodhistRepo.save(prodhist);//inserts
 		return true;
 	}
+
 	@Override
 	public List<ProductHistory> viewProduct() {
 		// TODO Auto-generated method stub
@@ -25,4 +27,10 @@ public class ProductHistoryServiceImpl implements ProductHistoryService {
 
 	}
 
+	@Override
+	public List<ProductHistory> findByRegid(long regid) {
+		// TODO Auto-generated method stub
+		return prodhistRepo.findByRegid(regid);
+
+	}
 }

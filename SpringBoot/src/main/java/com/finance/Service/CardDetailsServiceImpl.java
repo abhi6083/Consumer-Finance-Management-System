@@ -32,10 +32,10 @@ public class CardDetailsServiceImpl implements CardDetailsService {
 		}
 	}
 
-	@Override
+    @Override
 	public List<Card> getProducts() {
 		// TODO Auto-generated method stub
-		return cardRepo.findAll();
+	return cardRepo.findAll();
 	}
 	
 	

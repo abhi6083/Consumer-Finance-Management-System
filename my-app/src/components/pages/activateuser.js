@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 
@@ -15,7 +15,31 @@ import {
 
 
 export default function ActivateUser() {
+
+    const[users,setusers]=useState([])
+
+    const submit=(id)=>{
+        fetch('http://localhost:9797/cardapi/addcard/'+id, {
+        }).then(response=>response.json())
+        .then(response=>{
+           console.log(response) 
+        })
+
+    }
+
+    useEffect(()=>{
+        fetch('http://localhost:9797/userRest/api/user', {
+        }).then(response=>response.json())
+        .then(response=>{
+           console.log(response) 
+           setusers(response)  
+        })
+      },[])
+
+
+
     return (
+       
         <div>
 
             <header style={HeaderStyle}>
@@ -57,23 +81,34 @@ export default function ActivateUser() {
                 </tr>
                 <tr>
                     <th>Registration ID</th>
-                    <th>Card_No.</th>
+                    <th>Name</th>
                     <th>Card Type</th>
-                    <th>Validity</th>
-                    <th>Initial_bal</th>
-                    <th>Available_bal</th>
+                    <th>Bank Name</th>
+                    <th>Acc No</th>
+                    <th>Accept</th>
 
 
                 </tr>
+                
+
+                {users.map((user)=>{
+        if(user.isVerified === "False")
+           return(
+            
                 <tr>
-                    <td>c.regid</td>
-                    <td>c.cardno</td>
-                    <td>c.cardtype</td>
-                    <td>c.validity | date:'shortDate'</td>
-                    <td>c.initialbal</td>
-                    <td>c.availbal</td>
+                    <td>{user.regid}</td>
+                    <td>{user.uname}</td>
+                    <td>{user.cardtype}</td>
+                    <td>{user.bankname}</td>
+                    <td>{user.acc_no}</td>
+                    <td><button onClick={()=>submit(user.regid)}>Accept</button></td>
 
                 </tr>
+           
+            
+    )
+  })}
+
             </table>
         </div>
 

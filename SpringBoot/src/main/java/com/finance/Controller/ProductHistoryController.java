@@ -3,18 +3,13 @@ package com.finance.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.finance.Model.ProductHistory;
 import com.finance.Service.ProductHistoryService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200" )
+@CrossOrigin(origins = "http://localhost:3000" )
 @RequestMapping("/producthistory/api")
 public class ProductHistoryController {
 	@Autowired
@@ -27,6 +22,11 @@ public class ProductHistoryController {
 	@GetMapping("/ph")
 	public List<ProductHistory> getAll(){
 		return prodhistService.viewProduct();
+	}
+
+	@GetMapping("/ph/{regid}")
+	public List<ProductHistory> findByRegid(@PathVariable(value="regid") long regid){
+		return prodhistService.findByRegid(regid);
 	}
 	
 }

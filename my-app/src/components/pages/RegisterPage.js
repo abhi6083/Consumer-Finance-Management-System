@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link,useNavigate } from 'react-router-dom'
 
 import '../../App.css'
-import Dashboard from './Dashboard'
+
 
 export default function SignUpPage() {
     const [name,setname]=useState()

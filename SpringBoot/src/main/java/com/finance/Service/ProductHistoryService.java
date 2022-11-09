@@ -9,6 +9,7 @@ public interface ProductHistoryService {
 	
 	public boolean addProduct(ProductHistory prodhist);
 	public List<ProductHistory> viewProduct();
+	public List<ProductHistory> findByRegid(long regid);
 	
 
 }

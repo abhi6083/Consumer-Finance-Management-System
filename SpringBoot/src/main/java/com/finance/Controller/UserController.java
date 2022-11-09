@@ -85,7 +85,14 @@ public class UserController {
 		User u=null;
 		u=userService.findUserByUname(uname);
 		return u.getRegid();
-		
-	
 	}
+
+	@GetMapping("/getuser/{regid}")
+	public User findIdByRegid(@PathVariable(value="regid") long regid) {
+		User u=null;
+		u=userService.findUserByRegid(regid);
+		return u;
+	}
+
+
 }

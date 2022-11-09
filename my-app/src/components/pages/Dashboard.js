@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 
@@ -12,7 +12,27 @@ import {
     NavBtnLink,
 } from './NavbarElements';
 
-export default function Dashboard() {
+export default function Dashboard({regid}) {
+
+    // const[card,setcard]=useState()
+    // const[prodh,setprodh]=useState([])
+
+    // fetch('http://localhost:9797/cardapi/findcard/'+regid, {
+    // }).then(response=>response.json())
+    // .then(response=>{
+    //    console.log(response) 
+    //    console.log("nanda")
+    //    setcard(response)
+   // })
+    // useEffect(()=>{
+    //     fetch('http://localhost:9797/producthistory/api/ph/'+regid, {
+    //     }).then(response=>response.json())
+    //     .then(response=>{
+    //        console.log(response) 
+    //        setprodh(response)  
+    //     })
+    //   },[])
+
     return (
 <div>
         <header style={HeaderStyle}>
@@ -42,14 +62,14 @@ export default function Dashboard() {
             <div className={styles.carddetails}>
       
                     <label htmlFor="cardno">Card Number:</label>
-                    <input type="text" id="cardno" name="cardno" value="1234" readonly />
+                    <input type="text" id="cardno" name="cardno" value="123456" readonly />
                     <br/>
-                        <label htmlFor="name">Name:</label>
-                    <input type="text" id="name"  name="name" value="Team 5" readonly/>
+                        <label htmlFor="name">User Id:</label>
+                    <input type="text" id="name"  name="name" value="nanda" readonly/>
                     <br/>
                     <label htmlFor="validity">Valid till:</label>
                     
-                    <input type="text" id="validity" name="validity" value="05/22" readonly/>
+                    <input type="text" id="validity" name="validity" value="07-23" readonly/>
                     <br/>
                     <label htmlFor="ctype">Card Type:</label>
                     <input type="text" id="ctype" name="ctype" value="Gold"  readonly/>
@@ -57,9 +77,8 @@ export default function Dashboard() {
 
 
              <div className={styles.cardinfo}>
-                    TOTAL CREDIT:40,000<br/>
-                    CREDIT USED:20,000<br/>
-                    REMAINING CREDIT:20,000<br/>
+                    TOTAL CREDIT:20000<br/>
+                    REMAINING CREDIT:19000<br/>
              </div>
 
 
@@ -75,17 +94,20 @@ export default function Dashboard() {
            <thead>
                <tr className={styles.nanda2}>
                    <td>Product NAME</td>
-                   <td>DATE</td>
+                   <td>Total Price</td>
                    <td>AMOUNT PAID</td>
                </tr>
            </thead>
            <tbody>
+           
             <tr>
-                  <td>IQ00 NEO 6</td>
-                  <td>02/03/2022</td>
-                  <td>30,0000</td>
+                  <td>IQOO</td>
+                  <td>10000</td>
+                  <td>250</td>
                </tr>
+               
            </tbody>
+           
        </table>
     </div>
     </div>

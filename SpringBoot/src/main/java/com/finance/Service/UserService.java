@@ -9,6 +9,8 @@ public interface UserService {
 
     User findUserByEmail(String Email);
 
+    User findUserByRegid(long Id);
+
     public User findUserByUname(String uname);
 	public List<User> getAllUsers();
 

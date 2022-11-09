@@ -33,10 +33,10 @@ export default function App() {
                     <Route path='/register' element={ <RegisterPage/> } />
                     <Route path='/forget-password' element={ <ForgetPasswordPage setotp={setotp} /> } />
                     <Route path='/home' element={ <HomePage/> } />
-                    <Route path='/dashboard' element={ <Dashboard/> } />
+                    <Route path='/dashboard' element={ <Dashboard regid={regid}/> } />
                     <Route path='/productlist' element={ <Productlist /> } />
                     <Route path='/adminpage' element={ <Adminpage/> } />
-                    <Route path='/productinfo/:prodid' element={ <ProductDetails/> } />
+                    <Route path='/productinfo/:prodid' element={ <ProductDetails  regid={regid} /> } />
                     <Route path='/changepassword' element={ <Changepassword otp={otp}/> } />
                     <Route path='/activateuser' element={ <ActivateUser/> } />
                     <Route path='/addproduct' element={ <AddProduct/> } />
