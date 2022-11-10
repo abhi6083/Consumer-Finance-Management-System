@@ -53,13 +53,13 @@ export default function Productlist() {
   {prod.map((product)=>{
     return(
     <section className={styles.section}>
-    <img src="" className={styles.image} />
+    <img src={I2} className={styles.image} />
     <div className={styles.content}> 
       <label className={styles.lb1}> PRODUCT NAME :{product.prodname}</label><br/>
       <label className={styles.lb1}> PRODUCT DETAILS : {product.proddesc}</label><br/>
-      <label className={styles.lb1}> COST :{product.price}</label><br/>
+      <label className={styles.lb1}> COST :  ₹. {product.price}</label><br/>
       <NavBtn>
-            <NavBtnLink to={'/productinfo/'+product.prodid} style={{backgroundColor:"#3498db"}}>Know More & Buy</NavBtnLink>
+            <NavBtnLink to={'/productinfo/'+product.prodid} style={{backgroundColor:"#3498db;"}}>Know More & Buy</NavBtnLink>
       </NavBtn>
     </div>
   </section>
