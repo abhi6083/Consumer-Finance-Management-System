@@ -1,5 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import { Link } from 'react-router-dom'
+import I1 from '../../assets/images/laptop.jpg'
+import I2 from '../../assets/images/Mi_band.jpg'
+import I3 from '../../assets/images/Mivi_speaker.jpg'
 
 
 import styles from "./Productlist.module.css";
@@ -56,7 +59,7 @@ export default function Productlist() {
       <label className={styles.lb1}> PRODUCT DETAILS : {product.proddesc}</label><br/>
       <label className={styles.lb1}> COST :{product.price}</label><br/>
       <NavBtn>
-            <NavBtnLink to={'/productinfo/'+product.prodid}>Know More & Buy</NavBtnLink>
+            <NavBtnLink to={'/productinfo/'+product.prodid} style={{backgroundColor:"#3498db"}}>Know More & Buy</NavBtnLink>
       </NavBtn>
     </div>
   </section>

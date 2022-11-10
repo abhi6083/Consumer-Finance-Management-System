@@ -34,7 +34,7 @@ export default function LandingPage() {
 
                 <NavMenu>
 
-                    <NavBtnLink to='/register'>Regiser</NavBtnLink>
+                    <NavBtnLink to='/register'>Register</NavBtnLink>
                     <NavBtnLink to='/adminlogin'>Login Admin</NavBtnLink>
                     <NavBtnLink to='/login'>Login User</NavBtnLink>
 
@@ -46,13 +46,13 @@ export default function LandingPage() {
         <div className="l1">
             <div id="product">
                 <div id="productImage">
-                    <img src={I1} className="image" />
+                    <img src={I2} className="image" />
                 </div>
-                <div id="productInfo" >
-                    <p>PRODUCT NAME:</p>
-                    <p>PRODUCT DETAIL:</p>
-                    <p>COST:</p>
-                    <br /><button>BUY NOW</button>
+                <div id="productInfo" > <br /> <br />
+                    <h3>PRODUCT NAME: Mi Smart Band</h3> <br />
+                    <h3>PRODUCT DETAIL: </h3><br />
+                    <h3>COST:  ₹36000</h3>
+                    <br /><Link to="/register"><button >BUY NOW</button></Link>
                 </div>
             </div>
             <div id="cardDetails">
@@ -69,12 +69,12 @@ export default function LandingPage() {
                         <tr>
                             <td>GOLD</td>
                             <td>24 Months</td>
-                            <td>50,000</td>
+                            <td>1,00,000</td>
                         </tr>
                         <tr>
                             <td>TITANIUM</td>
                             <td>48 Months</td>
-                            <td>1,00,000</td>
+                            <td>5,00,000</td>
                         </tr>
                     </tbody>
                 </table>

@@ -1,9 +1,15 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link,useNavigate } from 'react-router-dom'
 
 import '../../App.css'
+import "./adminlogin.css";
+
 
 export default function AdminLoginPage() {
+  const navigate=useNavigate();
+    const submit=()=>{
+        navigate("/adminpage")
+    }
     return (
 
         <section id="body">
@@ -12,17 +18,20 @@ export default function AdminLoginPage() {
                 <div className="container" >
                     <div>
                         <label for="username"><b>Admin Name</b></label>
-                        <input type="text" name="username" placeholder="Enter AdminName" onChange={(e)=>setuname(e.target.value)} required /><br />
+                        <input type="text" name="username" placeholder="Enter AdminName" required /><br />
                     </div>
                     <br />
                     <div>
                         <label for="userpass"><b>Password</b></label>
-                        <input type="password" name="userpass" placeholder="Enter Password" onChange={(e)=>setpass(e.target.value)} required /> <br />
+                        <input type="password" name="userpass" placeholder="Enter Password" required /> <br />
                     </div>
                     <br />
                     <div style={{ display: "flex" }}>
-                        <button type="submit" value="Login"> LOGIN</button>
+                        <button onClick={submit} value="Login"> LOGIN</button>
                     </div>
+                </div>
+                <div className="alert-danger">
+                    <span><b>Message</b> </span>
                 </div>
             </form>
         </section>
