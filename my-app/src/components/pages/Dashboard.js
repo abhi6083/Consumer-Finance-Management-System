@@ -14,24 +14,27 @@ import {
 
 export default function Dashboard({regid}) {
 
-    // const[card,setcard]=useState()
-    // const[prodh,setprodh]=useState([])
+    const[card,setcard]=useState([])
+    const[prodh,setprodh]=useState([])
 
-    // fetch('http://localhost:9797/cardapi/findcard/'+regid, {
-    // }).then(response=>response.json())
-    // .then(response=>{
-    //    console.log(response) 
-    //    console.log("nanda")
-    //    setcard(response)
-   // })
-    // useEffect(()=>{
-    //     fetch('http://localhost:9797/producthistory/api/ph/'+regid, {
-    //     }).then(response=>response.json())
-    //     .then(response=>{
-    //        console.log(response) 
-    //        setprodh(response)  
-    //     })
-    //   },[])
+    useEffect(()=>{
+        fetch('http://localhost:9797/producthistory/api/ph/'+regid, {
+        }).then(response=>response.json())
+        .then(response=>{
+           console.log(response) 
+           setprodh(response) 
+        })
+        fetch('http://localhost:9797/cardapi/findcard/'+regid, {
+      }).then(response=>response.json())
+     .then(response=>{
+         console.log(response) 
+         console.log("nanda")
+         setcard(response)
+     })
+      },[])
+
+      
+     
 
     return (
 <div>
@@ -62,23 +65,23 @@ export default function Dashboard({regid}) {
             <div className={styles.carddetails}>
       
                     <label htmlFor="cardno">Card Number:</label>
-                    <input type="text" id="cardno" name="cardno" value="123456" readonly />
+                    <input type="text" id="cardno" name="cardno" value={card.cardno} readonly />
                     <br/>
                         <label htmlFor="name">User Id:</label>
-                    <input type="text" id="name"  name="name" value="nanda" readonly/>
+                    <input type="text" id="name"  name="name" value={card.regid} readonly/>
                     <br/>
                     <label htmlFor="validity">Valid till:</label>
                     
-                    <input type="text" id="validity" name="validity" value="07-23" readonly/>
+                    <input type="text" id="validity" name="validity" value={card.validity} readonly/>
                     <br/>
                     <label htmlFor="ctype">Card Type:</label>
-                    <input type="text" id="ctype" name="ctype" value="Gold"  readonly/>
+                    <input type="text" id="ctype" name="ctype" value={card.cardtype}  readonly/>
              </div>
 
 
              <div className={styles.cardinfo}>
-                    TOTAL CREDIT:20000<br/>
-                    REMAINING CREDIT:19000<br/>
+                    TOTAL CREDIT:{card.initialbal}<br/>
+                    REMAINING CREDIT:{card.availbal}<br/>
              </div>
 
 
@@ -99,13 +102,14 @@ export default function Dashboard({regid}) {
                </tr>
            </thead>
            <tbody>
-           
+           {prodh.map((product)=>{
+    return(
             <tr>
-                  <td>IQOO</td>
-                  <td>10000</td>
-                  <td>250</td>
+                  <td>{product.prodname}</td>
+                  <td>{product.price}</td>
+                  <td>{product.amountpaid}</td>
                </tr>
-               
+               )})}
            </tbody>
            
        </table>

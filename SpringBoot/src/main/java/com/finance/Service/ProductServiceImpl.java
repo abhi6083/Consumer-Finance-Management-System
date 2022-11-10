@@ -31,7 +31,7 @@ public class ProductServiceImpl implements ProductService {
 	public String addProducts(Product product) {
 		// TODO Auto-generated method stub
 		prodRepo.save(product);
-		return "Added";
+		return "true";
 	}
 	@Override
 	public List<Product> viewProductByName(String prodname) {

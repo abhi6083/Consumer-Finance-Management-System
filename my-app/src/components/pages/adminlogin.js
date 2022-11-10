@@ -1,9 +1,14 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+
+
+import {  useNavigate } from 'react-router-dom'
 
 import '../../App.css'
 
 export default function AdminLoginPage() {
+  const navigate=useNavigate();
+    const submit=()=>{
+        navigate("/adminpage")
+    }
     return (
 
         <section id="body">
@@ -21,7 +26,7 @@ export default function AdminLoginPage() {
                     </div>
                     <br />
                     <div style={{ display: "flex" }}>
-                        <button type="submit" value="Login"> LOGIN</button>
+                        <button onClick={submit} value="Login"> LOGIN</button>
                     </div>
                 </div>
                 <div className="alert-danger">

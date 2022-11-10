@@ -16,13 +16,6 @@ import {
 
 export default function AddProduct() {
 
-    const calculateEMI=()=>{
-
-    
-
-
-    }
-    
 
     const[prodid,setprodid]=useState()
     const[prodname,setprodname]=useState()
@@ -41,10 +34,10 @@ export default function AddProduct() {
     const submit=()=>{
         var flag=1
         const obj={
-            prodid : prodid,
+            
             prodname : prodname,
             proddesc : proddesc,
-            prodimg : prodimg,
+
             price : price,
             emi_3m : emi_3m,
             emi_6m : emi_6m,
@@ -52,42 +45,24 @@ export default function AddProduct() {
             emi_1y : emi_1y
         }
     
-    
-        fetch('http://localhost:9797/api/products/'+prodid, {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-        })
-        .then(response => response.json())
-        .then(response =>{
-            if( JSON.stringify(response)==="true"){
-                console.log("1 pahucha")
-                alert("User Already Exist")
-                navigate('/login')   
-            }
-            else{
-                fetch('http://localhost:9797/userRest/api/user', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify( obj )
-                })
-                .then(response => response.json())
-                .then(response =>{
-                    if( JSON.stringify(response)==="true"){
-                        console.log("2 pahucha")
-                        navigate("/login")
-                    }
+        fetch('http://localhost:9797/api/products', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify( obj )
+            })
+            .then(response => response.json())
+            .then(response =>{
+                console.log(response)
+                if( JSON.stringify(response)==="true"){
+                    navigate("/activateuser")
                 }
-                )
-                
             }
-        }
-        )
+            )
+        
+        
     
 }
 
@@ -137,11 +112,8 @@ export default function AddProduct() {
             <div className="container">
                 <div className="card">
                     <section id="body">
-                        <form>
-                            <div>
-                                <label for="prodid">Product ID</label>
-                                <input type="text" name="prodid" onChange={(e)=>setprodid(e.target.value)} required />
-                            </div>
+                        
+                            
                             <div>
                                 <label for="prodname">Product Name</label>
                                 <input type="text" name="prodname" onChange={(e)=>setprodname(e.target.value)} required />
@@ -158,9 +130,9 @@ export default function AddProduct() {
                                 <label for="price">Product Price</label>
                                 <input type="text" name="price" onChange={(e)=>setprice(e.target.value)} required />
                             </div>
-                            <div style={{display: "flex"}}>
+                            {/* <div style={{display: "flex"}}>
                                 <button type="submit" onClick={calculateEMI}>Calculate EMI's</button>
-                            </div>
+                            </div> */}
                             <div>
                                 <label for="emi3">EMI 3M</label>
                                 <input type="text" name="emi3" onChange={(e)=>setemi_3m(e.target.value)} required />
@@ -177,15 +149,15 @@ export default function AddProduct() {
                                 <label for="emi1y">EMI 1Y</label>
                                 <input type="text" name="emi1y" onChange={(e)=>setemi_1y(e.target.value)} required />
                             </div>
-                            <div>
+                            {/* <div>
                                 <label for="image">Product Image</label>
                                 <input type="file" name="image"
                                     style={{display: 'inline-block'}} accept="image/x-png,image/jpeg,image/jpg" onChange={(e)=>setprodimg(e.target.value)} required />
-                            </div>
+                            </div> */}
                             <div style={{display: "flex"}}>
-                                <button type="submit" value="Save Product" onClick={submit}>Save Product</button>
+                                <button value="Save Product" onClick={submit}>Save Product</button>
                             </div>
-                        </form>
+                        
                     </section>
 
                 </div>
