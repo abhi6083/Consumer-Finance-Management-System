@@ -12,38 +12,21 @@ export default function ProductDetails({regid}) {
     const[prod,setprod]=useState([])
     console.log(prodid)
     const[emi,setemi]=useState()
-    var flag1=1
-     
-    const submit=()=>{
 
-        fetch('http://localhost:9797/cardapi/findcard/'+regid, {
-    }).then(response=>response.json())
-    .then(response=>{
-       console.log(response) 
-       console.log("nanda")
-       console.log(response.availbal)
-       console.log(emi)
-    })
-    
-    fetch('http://localhost:9797/cardapi/updatebal/'+regid+'/'+emi, {
-    }).then(response=>response.json())
-    .then(response=>{
-       console.log(response) 
-       setbal(response.availbal)
-    })
-    const obj={
-        ammount_bal:bal,
-        amountpaid:emi,
-        emi:emi,
-        price:prod.price,
-        prodid:prodid,
-        prodname:prod.prodname,
-        regid:regid
-    }
 
-    
+    const nanda=(balance)=>{
+        const obj={
+            ammount_bal:balance,
+            amountpaid:emi,
+            emi:emi,
+            price:prod.price,
+            prodid:prodid,
+            prodname:prod.prodname,
+            regid:regid
+        }
+        console.log(obj)
 
-    fetch('http://localhost:9797/producthistory/api/ph', {
+        fetch('http://localhost:9797/producthistory/api/ph', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -58,6 +41,34 @@ export default function ProductDetails({regid}) {
                 }
             }
             )
+    }
+     
+    const submit=()=>{
+
+        fetch('http://localhost:9797/cardapi/findcard/'+regid, {
+    }).then(response=>response.json())
+    .then(response=>{
+       console.log(response) 
+       console.log("nanda")
+       console.log(response.availbal)
+       console.log(emi)
+       console.log(response.availbal-emi)
+       const balance=response.availbal-emi
+       setbal(balance)
+       nanda(balance)
+    })
+    
+    // fetch('http://localhost:9797/cardapi/updatebal/'+regid+'/'+emi, {
+    // }).then(response=>response.json())
+    // .then(response=>{
+    //    console.log(response) 
+    //    setbal(response.availbal)
+    // })
+    
+
+    
+
+    
         
         }
 

@@ -16,12 +16,6 @@ import {
 
 export default function AddProduct() {
 
-    const calculateEMI = () => {
-
-
-
-
-    }
 
 
     const [prodid, setprodid] = useState()
@@ -38,19 +32,40 @@ export default function AddProduct() {
 
     const navigate = useNavigate();
 
-    const submit = () => {
-        var flag = 1
-        const obj = {
-            prodid: prodid,
-            prodname: prodname,
-            proddesc: proddesc,
-            prodimg: prodimg,
-            price: price,
-            emi_3m: emi_3m,
-            emi_6m: emi_6m,
-            emi_9m: emi_9m,
-            emi_1y: emi_1y
+    const submit=()=>{
+        var flag=1
+        const obj={
+            
+            prodname : prodname,
+            proddesc : proddesc,
+
+            price : price,
+            emi_3m : emi_3m,
+            emi_6m : emi_6m,
+            emi_9m : emi_9m,
+            emi_1y : emi_1y
         }
+    
+        fetch('http://localhost:9797/api/products', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify( obj )
+            })
+            .then(response => response.json())
+            .then(response =>{
+                console.log(response)
+                if( JSON.stringify(response)==="true"){
+                    navigate("/activateuser")
+                }
+            }
+            )
+        
+        
+    
+}
 
         console.log("Hello")
         fetch('http://localhost:9797/api/products/' + prodid, {
@@ -136,11 +151,8 @@ export default function AddProduct() {
             <div className="container">
                 <div className="card">
                     <section id="body">
-                        <form>
-                            <div>
-                                <label for="prodid">Product ID</label>
-                                <input type="text" name="prodid" onChange={(e) => setprodid(e.target.value)} required />
-                            </div>
+                        
+                            
                             <div>
                                 <label for="prodname">Product Name</label>
                                 <input type="text" name="prodname" onChange={(e) => setprodname(e.target.value)} required />
@@ -153,7 +165,7 @@ export default function AddProduct() {
                                 <label for="price">Product Price</label>
                                 <input type="text" name="price" onChange={(e) => setprice(e.target.value)} required />
                             </div>
-                            {/* <div style={{ display: "flex" }}>
+                            {/* <div style={{display: "flex"}}>
                                 <button type="submit" onClick={calculateEMI}>Calculate EMI's</button>
                             </div> */}
                             <div>
@@ -177,10 +189,10 @@ export default function AddProduct() {
                                 <input type="file" name="image"
                                     style={{display: 'inline-block'}} accept="image/x-png,image/jpeg,image/jpg" onChange={(e)=>setprodimg(e.target.value)} required />
                             </div> */}
-                            <div style={{ display: "flex" }}>
-                                <button type="submit" value="Save Product" onClick={submit}>Save Product</button>
+                            <div style={{display: "flex"}}>
+                                <button value="Save Product" onClick={submit}>Save Product</button>
                             </div>
-                        </form>
+                        
                     </section>
 
                 </div>
