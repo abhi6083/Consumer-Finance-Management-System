@@ -71,7 +71,7 @@ void testGetProductsN() {
 @Test
 void testGetDetailsByRegIdP() {
 	 long regid=26;//from database
-		assertEquals(false,(usRep.findById(regid).get())==null);
+		assertEquals(false,(usRep.findById(regid))==null);
 }
 @Test
 void testGetDetailsByRegIdN() {
@@ -91,7 +91,7 @@ void testAddProduct() {
 
 @Test
 void findUserP() {
-	User u=usRep.findUserByUname("Prachi12");//from database
+	User u=usRep.findUserByUname("aryan_khan");//from database
 	assertEquals(false, u==null);
 }
 @Test
