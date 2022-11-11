@@ -18,13 +18,13 @@ CSS\
 JPA\
 MySQL
 
-**Project Modules:**/
-Registration/
-Admin Login/
-User Login/
-Dashboard/
-Product list/
-Product Details/
-Admin page/
-Forgot password/
-Update password/
+**Project Modules:**\
+Registration\
+Admin Login\
+User Login\
+Dashboard\
+Product list\
+Product Details\
+Admin page\
+Forgot password\
+Update password
